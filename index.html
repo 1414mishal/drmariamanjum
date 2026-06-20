@@ -478,6 +478,9 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-primary">
 
+<!-- Full-page Aurora shader overlay (fixed, tints all sections with subtle moving light) -->
+<canvas id="aurora-canvas" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:9; mix-blend-mode:soft-light; opacity:0.18;" aria-hidden="true"></canvas>
+
 <!-- Scroll Progress Indicator -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -521,8 +524,6 @@
   <div class="absolute inset-0 z-0">
     <!-- Base gradient (also the no-WebGL fallback) -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#0c4a6e] via-[#0369a1] to-[#0284c7]"></div>
-    <!-- Interactive light-blue Aurora shader -->
-    <canvas id="aurora-canvas" class="absolute inset-0 w-full h-full pointer-events-none" style="mix-blend-mode: screen;" aria-hidden="true"></canvas>
     <!-- Soft depth vignette + readability overlay -->
     <div class="absolute inset-0 bg-gradient-to-t from-[#0c4a6e]/55 via-transparent to-[#082f49]/20 pointer-events-none"></div>
     <div class="absolute top-[20%] right-[15%] w-[400px] h-[400px] bg-primary-fixed/15 rounded-full blur-[120px] blob-drift pointer-events-none"></div>
@@ -1493,7 +1494,7 @@
 
       <!-- Right: Appointment Form -->
       <div data-reveal="right" class="bg-on-primary/5 backdrop-blur-sm p-10 md:p-16 border-t lg:border-t-0 lg:border-l border-on-primary/10 relative">
-        <form class="space-y-5" onsubmit="event.preventDefault(); window.location.href='tel:+916364758855';">
+        <form id="appointmentForm" class="space-y-5" onsubmit="submitToWhatsApp(event)">
           <h3 class="font-headline-md text-headline-md text-on-primary mb-2">Quick Appointment Request</h3>
           <p class="font-body-md text-primary-fixed/70 text-[14px] mb-6">Fill in your details and we'll call you back.</p>
 
@@ -1504,7 +1505,29 @@
 
           <div>
             <label class="font-label-md text-label-md text-primary-fixed/80 uppercase tracking-widest block mb-2" for="phone">Phone Number</label>
-            <input id="phone" type="tel" required class="w-full bg-on-primary/5 border border-on-primary/20 rounded-lg px-4 py-3 text-on-primary placeholder:text-primary-fixed/40 focus:outline-none focus:border-primary-fixed focus:bg-on-primary/10 transition-all" placeholder="+91"/>
+            <div class="flex gap-2">
+              <select id="countryCode" class="w-[110px] flex-shrink-0 bg-on-primary/5 border border-on-primary/20 rounded-lg px-2 py-3 text-on-primary text-[14px] focus:outline-none focus:border-primary-fixed focus:bg-on-primary/10 transition-all">
+                <option value="+91" selected>+91 IN</option>
+                <option value="+1">+1 US</option>
+                <option value="+44">+44 UK</option>
+                <option value="+971">+971 UAE</option>
+                <option value="+966">+966 SA</option>
+                <option value="+968">+968 OM</option>
+                <option value="+974">+974 QA</option>
+                <option value="+65">+65 SG</option>
+                <option value="+61">+61 AU</option>
+                <option value="+49">+49 DE</option>
+                <option value="+33">+33 FR</option>
+                <option value="+81">+81 JP</option>
+                <option value="+86">+86 CN</option>
+                <option value="+60">+60 MY</option>
+                <option value="+977">+977 NP</option>
+                <option value="+94">+94 LK</option>
+                <option value="+880">+880 BD</option>
+                <option value="+92">+92 PK</option>
+              </select>
+              <input id="phone" type="tel" required class="flex-1 min-w-0 bg-on-primary/5 border border-on-primary/20 rounded-lg px-4 py-3 text-on-primary placeholder:text-primary-fixed/40 focus:outline-none focus:border-primary-fixed focus:bg-on-primary/10 transition-all" placeholder="Enter phone number"/>
+            </div>
           </div>
 
           <div>
@@ -1526,11 +1549,11 @@
             <textarea id="message" rows="3" class="w-full bg-on-primary/5 border border-on-primary/20 rounded-lg px-4 py-3 text-on-primary placeholder:text-primary-fixed/40 focus:outline-none focus:border-primary-fixed focus:bg-on-primary/10 transition-all resize-none" placeholder="Share any details..."></textarea>
           </div>
 
-          <button type="submit" class="btn-fancy w-full bg-on-primary text-primary py-4 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 mt-2 shadow-lg">
-            Submit Request
-            <span class="material-symbols-outlined">arrow_forward</span>
+          <button type="submit" class="btn-fancy w-full bg-[#25D366] hover:bg-[#1ebe5a] text-white py-4 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2.5 mt-2 shadow-lg transition-colors">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send via WhatsApp
           </button>
-          <p class="font-caption text-primary-fixed/60 text-[12px] text-center">By submitting, you agree to be contacted by our team.</p>
+          <p class="font-caption text-primary-fixed/60 text-[12px] text-center">Your details will be sent to Dr. Anjum's team on WhatsApp.</p>
         </form>
       </div>
     </div>
@@ -1901,6 +1924,33 @@
     }
   });
 
+  // ===== WhatsApp form submit =====
+  window.submitToWhatsApp = function(e) {
+    e.preventDefault();
+    var name = document.getElementById('name').value.trim();
+    var code = document.getElementById('countryCode').value;
+    var phone = document.getElementById('phone').value.trim();
+    var reason = document.getElementById('reason');
+    var reasonText = reason.options[reason.selectedIndex].text;
+    var message = document.getElementById('message').value.trim();
+
+    if (!name || !phone) return;
+
+    var fullPhone = code + phone.replace(/^0+/, '');
+    var lines = [
+      '*New Appointment Request*',
+      '',
+      '*Name:* ' + name,
+      '*Phone:* ' + fullPhone,
+      '*Reason:* ' + (reason.value ? reasonText : 'Not specified')
+    ];
+    if (message) lines.push('*Message:* ' + message);
+
+    var whatsappNumber = '916364758855';
+    var url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   // ===== Lightbox =====
   window.openLightbox = function(el) {
     var img = el.querySelector('img');
@@ -1947,13 +1997,13 @@
 })();
 </script>
 
-<!-- ===== Light-Blue Aurora Hero Shader (WebGL) ===== -->
+<!-- ===== Full-Page Light-Blue Aurora Shader (WebGL) ===== -->
 <script>
 (function () {
   var canvas = document.getElementById('aurora-canvas');
   if (!canvas) return;
   var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  if (!gl) { canvas.style.display = 'none'; return; }  // graceful fallback to gradient
+  if (!gl) { canvas.style.display = 'none'; return; }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1965,7 +2015,7 @@
     '#define MARCH_STEPS 32',
     'float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }',
     'float fbm(vec3 p){ float f=0.0, amp=0.5; for(int i=0;i<8;i++){ if(float(i)>=uNoiseLayers) break; f+=amp*hash(p.xy); p*=2.0; amp*=0.5; } return f; }',
-    'float map(vec3 p){ vec3 q=p; q.z+=iTime*uFlowSpeed; vec2 m=(iMouse.xy/iResolution.xy-0.5)*2.0; q.xy+=m*uMouseInfluence; float f=fbm(q*2.0); f*=sin(p.y*2.0+iTime)*0.5+0.5; return clamp(f,0.0,1.0); }',
+    'float map(vec3 p){ vec3 q=p; q.z+=iTime*uFlowSpeed; vec2 m=(iMouse.xy/iResolution.xy-0.5)*2.0; q.xy+=m*uMouseInfluence; float f=fbm(q*2.0); f*=sin(p.y*2.0+iTime*0.3)*0.5+0.5; return clamp(f,0.0,1.0); }',
     'void main(){',
     '  vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;',
     '  vec3 ro=vec3(0.0,-1.0,0.0); vec3 rd=normalize(vec3(uv,1.0));',
@@ -1973,11 +2023,11 @@
     '  for(int i=0;i<MARCH_STEPS;i++){',
     '    vec3 p=ro+rd*t; float density=map(p);',
     '    if(density>0.0){',
-    '      float w=0.5+0.5*sin(iTime*0.4+p.y*2.0);',
-    '      vec3 base=vec3(0.16,0.45,0.85);',   // soft blue
-    '      vec3 hi=vec3(0.55,0.84,1.0);',      // light cyan-blue
+    '      float w=0.5+0.5*sin(iTime*0.15+p.y*2.0);',
+    '      vec3 base=vec3(0.20,0.52,0.92);',
+    '      vec3 hi=vec3(0.60,0.88,1.0);',
     '      vec3 auroraColor=mix(base,hi,w);',
-    '      col+=auroraColor*density*0.11*uColorIntensity;',
+    '      col+=auroraColor*density*0.13*uColorIntensity;',
     '    }',
     '    t+=0.1;',
     '  }',
@@ -2000,27 +2050,30 @@
   var uFlow=gl.getUniformLocation(prog,'uFlowSpeed'), uInt=gl.getUniformLocation(prog,'uColorIntensity'), uLay=gl.getUniformLocation(prog,'uNoiseLayers'), uMI=gl.getUniformLocation(prog,'uMouseInfluence');
 
   var mouse={x:0.5,y:0.5};
-  window.addEventListener('mousemove', function(e){ var r=canvas.getBoundingClientRect(); mouse.x=(e.clientX-r.left)/r.width; mouse.y=(e.clientY-r.top)/r.height; }, {passive:true});
+  window.addEventListener('mousemove', function(e){ mouse.x=e.clientX/window.innerWidth; mouse.y=e.clientY/window.innerHeight; }, {passive:true});
 
-  function resize(){ var dpr=Math.min(window.devicePixelRatio||1, 1.75); canvas.width=Math.floor(canvas.clientWidth*dpr); canvas.height=Math.floor(canvas.clientHeight*dpr); gl.viewport(0,0,canvas.width,canvas.height); gl.uniform2f(uRes,canvas.width,canvas.height); }
+  function resize(){ var dpr=Math.min(window.devicePixelRatio||1, 1.5); canvas.width=Math.floor(window.innerWidth*dpr); canvas.height=Math.floor(window.innerHeight*dpr); gl.viewport(0,0,canvas.width,canvas.height); gl.uniform2f(uRes,canvas.width,canvas.height); }
   window.addEventListener('resize', resize); resize();
 
-  var start=performance.now(), raf=null, visible=true;
+  var start=performance.now(), raf=null;
   function render(){
     if(!gl||gl.isContextLost()) return;
     var time=(performance.now()-start)/1000.0;
     gl.uniform1f(uTime, reduceMotion ? 6.0 : time);
     gl.uniform2f(uMouse, mouse.x*canvas.width, (1.0-mouse.y)*canvas.height);
-    gl.uniform1f(uFlow, 0.35); gl.uniform1f(uInt, 1.35); gl.uniform1f(uLay, 4.0); gl.uniform1f(uMI, 0.3);
+    gl.uniform1f(uFlow, 0.08);   // very slow drift
+    gl.uniform1f(uInt, 1.6);     // brighter to show through low opacity
+    gl.uniform1f(uLay, 4.0);
+    gl.uniform1f(uMI, 0.15);    // subtle mouse influence
     gl.drawArrays(gl.TRIANGLES,0,6);
-    if(reduceMotion){ raf=null; return; }     // render a single static frame
+    if(reduceMotion){ raf=null; return; }
     raf=requestAnimationFrame(render);
   }
-  // Pause when hero scrolls out of view (battery / perf)
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(en){ en.forEach(function(e){ visible=e.isIntersecting; if(visible && !raf && !reduceMotion){ raf=requestAnimationFrame(render); } else if(!visible && raf){ cancelAnimationFrame(raf); raf=null; } }); }, {threshold:0}).observe(canvas);
-  }
-  document.addEventListener('visibilitychange', function(){ if(document.hidden && raf){ cancelAnimationFrame(raf); raf=null; } else if(!document.hidden && !raf && visible && !reduceMotion){ raf=requestAnimationFrame(render); } });
+  // Pause when tab hidden, resume when visible
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden && raf){ cancelAnimationFrame(raf); raf=null; }
+    else if(!document.hidden && !raf && !reduceMotion){ raf=requestAnimationFrame(render); }
+  });
   render();
 })();
 </script>
