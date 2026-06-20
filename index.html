@@ -701,7 +701,6 @@
         <h2 data-reveal="up" data-delay="150" class="font-headline-lg text-[32px] md:text-[44px] leading-tight text-primary mb-4">Specialised Care for Women's Health &amp; Cancer.</h2>
         <p data-reveal="up" data-delay="300" class="font-body-lg text-body-lg text-on-surface-variant">A comprehensive spectrum of services — from benign gynaecological conditions to advanced gynae-oncologic surgeries.</p>
       </div>
-      <div class="hidden md:block h-px bg-outline-variant flex-grow mx-12 mb-4"></div>
     </div>
 
     <!-- Cancer Care -->
@@ -962,7 +961,6 @@
           <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center text-primary-fixed flex-shrink-0">
             <span class="material-symbols-outlined">local_hospital</span>
           </div>
-          <span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-[11px] tracking-widest uppercase">Current</span>
         </div>
         <p class="font-label-md text-secondary text-label-md tracking-widest uppercase mb-2">Dec 2019 – Present</p>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Visiting Consultant — Gynaecologic Oncologist</h3>
@@ -977,7 +975,6 @@
           <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center text-primary-fixed flex-shrink-0">
             <span class="material-symbols-outlined">school</span>
           </div>
-          <span class="px-3 py-1 rounded-full bg-primary-fixed text-primary font-label-md text-[11px] tracking-widest uppercase">Faculty</span>
         </div>
         <p class="font-label-md text-secondary text-label-md tracking-widest uppercase mb-2">Current</p>
         <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Assistant Professor — Gynaecologic Oncology</h3>
@@ -1085,11 +1082,12 @@
   <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="grid lg:grid-cols-12 gap-16 items-center">
       <div data-reveal="left" class="lg:col-span-5 order-2 lg:order-1">
-        <div class="rounded-3xl overflow-hidden shadow-2xl relative zoom-on-hover">
-          <img alt="Dr. Mariam Anjum with international delegates at a Gynaecologic Oncology conference" class="w-full h-auto block" src="photos/Delivered a talk in robotic workshop -Topic ~.jpeg"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
-          <div class="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-2xl">
-            <p class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2">Recognition</p>
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <div class="zoom-on-hover">
+            <img alt="Dr. Mariam Anjum with international delegates at a Gynaecologic Oncology conference" class="w-full h-auto block" src="photos/Delivered a talk in robotic workshop -Topic ~.jpeg"/>
+          </div>
+          <div class="p-6 md:p-8 bg-white">
+            <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Recognition</p>
             <h4 class="font-headline-md text-headline-md text-on-background mb-2">First in Dakshina Kannada</h4>
             <p class="font-body-md text-on-surface-variant text-[14px]">Recognised as the first Gynaecologic Oncologist in the district, advancing access to specialised cancer care in coastal Karnataka.</p>
           </div>
@@ -1151,8 +1149,24 @@
       <p data-reveal="up" data-delay="300" class="font-body-lg text-body-lg text-on-surface-variant">Surgery, academic talks, awards, workshops, and more.</p>
     </div>
 
+    <!-- Gallery Preview (always visible teaser) -->
+    <div data-reveal="up" data-delay="350" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-[1100px] mx-auto">
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum receiving award" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards.jpeg" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum delivering a talk at robotic workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Delivered a talk in robotic workshop -Topic ~.jpeg" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group hidden md:block" onclick="openLightbox(this)">
+        <img alt="Faculty group at medical conference" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/faculty.jpeg" loading="lazy"/>
+      </div>
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer group hidden md:block" onclick="openLightbox(this)">
+        <img alt="AGRS robotic training completion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/AGRS wet lab robotic training level 2 completed 7 batches more than 50 candidates PanIndia being trained on live animal on Intuitive da Vinci Xi - award.jpeg" loading="lazy"/>
+      </div>
+    </div>
+
     <!-- Gallery Toggle Button -->
-    <div data-reveal="up" data-delay="350" class="flex justify-center mb-8">
+    <div data-reveal="up" data-delay="450" class="flex justify-center mb-8">
       <button id="galleryToggle" type="button" onclick="toggleGallery()" aria-expanded="false" aria-controls="galleryReveal" class="btn-fancy bg-primary text-white px-8 py-4 rounded-full font-label-md text-label-md flex items-center gap-2.5 shadow-lg">
         <span class="material-symbols-outlined text-[20px]">photo_library</span>
         <span id="galleryToggleText">View Photo Gallery</span>
