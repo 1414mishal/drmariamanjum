@@ -1,0 +1,12 @@
+# Local editor / harness config
+.claude/
+
+# Unused root-level duplicate source images (live versions are in /photos)
+/*.jpeg
+/*.jpg
+
+# OS / tooling cruft
+Thumbs.db
+.DS_Store
+_gb.ttf
+node_modules/
