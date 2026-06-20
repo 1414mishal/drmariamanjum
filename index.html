@@ -478,8 +478,6 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-primary">
 
-<!-- Full-page Aurora shader overlay (fixed, tints all sections with subtle moving light) -->
-<canvas id="aurora-canvas" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:9; mix-blend-mode:soft-light; opacity:0.18;" aria-hidden="true"></canvas>
 
 <!-- Scroll Progress Indicator -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -524,6 +522,8 @@
   <div class="absolute inset-0 z-0">
     <!-- Base gradient (also the no-WebGL fallback) -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#0c4a6e] via-[#0369a1] to-[#0284c7]"></div>
+    <!-- Interactive light-blue Aurora shader -->
+    <canvas id="aurora-canvas" class="absolute inset-0 w-full h-full pointer-events-none" style="mix-blend-mode: screen;" aria-hidden="true"></canvas>
     <!-- Soft depth vignette + readability overlay -->
     <div class="absolute inset-0 bg-gradient-to-t from-[#0c4a6e]/55 via-transparent to-[#082f49]/20 pointer-events-none"></div>
     <div class="absolute top-[20%] right-[15%] w-[400px] h-[400px] bg-primary-fixed/15 rounded-full blur-[120px] blob-drift pointer-events-none"></div>
@@ -1997,7 +1997,7 @@
 })();
 </script>
 
-<!-- ===== Full-Page Light-Blue Aurora Shader (WebGL) ===== -->
+<!-- ===== Light-Blue Aurora Hero Shader (WebGL) ===== -->
 <script>
 (function () {
   var canvas = document.getElementById('aurora-canvas');
@@ -2015,7 +2015,7 @@
     '#define MARCH_STEPS 32',
     'float hash(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p,p+45.32); return fract(p.x*p.y); }',
     'float fbm(vec3 p){ float f=0.0, amp=0.5; for(int i=0;i<8;i++){ if(float(i)>=uNoiseLayers) break; f+=amp*hash(p.xy); p*=2.0; amp*=0.5; } return f; }',
-    'float map(vec3 p){ vec3 q=p; q.z+=iTime*uFlowSpeed; vec2 m=(iMouse.xy/iResolution.xy-0.5)*2.0; q.xy+=m*uMouseInfluence; float f=fbm(q*2.0); f*=sin(p.y*2.0+iTime*0.3)*0.5+0.5; return clamp(f,0.0,1.0); }',
+    'float map(vec3 p){ vec3 q=p; q.z+=iTime*uFlowSpeed; vec2 m=(iMouse.xy/iResolution.xy-0.5)*2.0; q.xy+=m*uMouseInfluence; float f=fbm(q*2.0); f*=sin(p.y*2.0+iTime)*0.5+0.5; return clamp(f,0.0,1.0); }',
     'void main(){',
     '  vec2 uv=(gl_FragCoord.xy-0.5*iResolution.xy)/iResolution.y;',
     '  vec3 ro=vec3(0.0,-1.0,0.0); vec3 rd=normalize(vec3(uv,1.0));',
@@ -2023,11 +2023,11 @@
     '  for(int i=0;i<MARCH_STEPS;i++){',
     '    vec3 p=ro+rd*t; float density=map(p);',
     '    if(density>0.0){',
-    '      float w=0.5+0.5*sin(iTime*0.15+p.y*2.0);',
-    '      vec3 base=vec3(0.20,0.52,0.92);',
-    '      vec3 hi=vec3(0.60,0.88,1.0);',
+    '      float w=0.5+0.5*sin(iTime*0.4+p.y*2.0);',
+    '      vec3 base=vec3(0.16,0.45,0.85);',
+    '      vec3 hi=vec3(0.55,0.84,1.0);',
     '      vec3 auroraColor=mix(base,hi,w);',
-    '      col+=auroraColor*density*0.13*uColorIntensity;',
+    '      col+=auroraColor*density*0.11*uColorIntensity;',
     '    }',
     '    t+=0.1;',
     '  }',
@@ -2050,30 +2050,30 @@
   var uFlow=gl.getUniformLocation(prog,'uFlowSpeed'), uInt=gl.getUniformLocation(prog,'uColorIntensity'), uLay=gl.getUniformLocation(prog,'uNoiseLayers'), uMI=gl.getUniformLocation(prog,'uMouseInfluence');
 
   var mouse={x:0.5,y:0.5};
-  window.addEventListener('mousemove', function(e){ mouse.x=e.clientX/window.innerWidth; mouse.y=e.clientY/window.innerHeight; }, {passive:true});
+  window.addEventListener('mousemove', function(e){ var r=canvas.getBoundingClientRect(); mouse.x=(e.clientX-r.left)/r.width; mouse.y=(e.clientY-r.top)/r.height; }, {passive:true});
 
-  function resize(){ var dpr=Math.min(window.devicePixelRatio||1, 1.5); canvas.width=Math.floor(window.innerWidth*dpr); canvas.height=Math.floor(window.innerHeight*dpr); gl.viewport(0,0,canvas.width,canvas.height); gl.uniform2f(uRes,canvas.width,canvas.height); }
+  function resize(){ var dpr=Math.min(window.devicePixelRatio||1, 1.75); canvas.width=Math.floor(canvas.clientWidth*dpr); canvas.height=Math.floor(canvas.clientHeight*dpr); gl.viewport(0,0,canvas.width,canvas.height); gl.uniform2f(uRes,canvas.width,canvas.height); }
   window.addEventListener('resize', resize); resize();
 
-  var start=performance.now(), raf=null;
+  var start=performance.now(), raf=null, visible=true;
   function render(){
     if(!gl||gl.isContextLost()) return;
     var time=(performance.now()-start)/1000.0;
     gl.uniform1f(uTime, reduceMotion ? 6.0 : time);
     gl.uniform2f(uMouse, mouse.x*canvas.width, (1.0-mouse.y)*canvas.height);
-    gl.uniform1f(uFlow, 0.08);   // very slow drift
-    gl.uniform1f(uInt, 1.6);     // brighter to show through low opacity
+    gl.uniform1f(uFlow, 0.15);   // slower drift than original 0.35
+    gl.uniform1f(uInt, 1.35);    // same brightness as before
     gl.uniform1f(uLay, 4.0);
-    gl.uniform1f(uMI, 0.15);    // subtle mouse influence
+    gl.uniform1f(uMI, 0.3);
     gl.drawArrays(gl.TRIANGLES,0,6);
     if(reduceMotion){ raf=null; return; }
     raf=requestAnimationFrame(render);
   }
-  // Pause when tab hidden, resume when visible
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden && raf){ cancelAnimationFrame(raf); raf=null; }
-    else if(!document.hidden && !raf && !reduceMotion){ raf=requestAnimationFrame(render); }
-  });
+  // Pause when hero scrolls out of view (battery / perf)
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ en.forEach(function(e){ visible=e.isIntersecting; if(visible && !raf && !reduceMotion){ raf=requestAnimationFrame(render); } else if(!visible && raf){ cancelAnimationFrame(raf); raf=null; } }); }, {threshold:0}).observe(canvas);
+  }
+  document.addEventListener('visibilitychange', function(){ if(document.hidden && raf){ cancelAnimationFrame(raf); raf=null; } else if(!document.hidden && !raf && visible && !reduceMotion){ raf=requestAnimationFrame(render); } });
   render();
 })();
 </script>
