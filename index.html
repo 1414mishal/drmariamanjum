@@ -172,13 +172,7 @@
       radial-gradient(circle at 80% 80%, rgba(186, 230, 253, 0.10) 0%, transparent 40%);
   }
   html { scroll-padding-top: 96px; scroll-behavior: smooth; }
-  body { overflow-x: hidden; background: transparent; }
-
-  /* Let the aurora show through content sections */
-  main > section { position: relative; z-index: 1; }
-  main > section.bg-surface-container-lowest { background: rgba(255,255,255,0.92) !important; }
-  main > section.bg-surface-container-low { background: rgba(241,245,249,0.90) !important; }
-  footer { position: relative; z-index: 1; background: rgba(3,105,161,0.97) !important; }
+  body { overflow-x: hidden; }
   .hairline { background: linear-gradient(to right, transparent, #b8c9d6, transparent); height: 1px; }
 
   /* ===== Scroll Progress Bar ===== */
@@ -484,8 +478,8 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-primary">
 
-<!-- Full-page Aurora shader (fixed behind content, screen-blended) -->
-<canvas id="aurora-bg" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:0;" aria-hidden="true"></canvas>
+<!-- Full-page Aurora shader (overlaid on all content with blend mode) -->
+<canvas id="aurora-bg" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:9; mix-blend-mode:overlay; opacity:0.45;" aria-hidden="true"></canvas>
 
 <!-- Scroll Progress Indicator -->
 <div class="scroll-progress" id="scrollProgress"></div>
