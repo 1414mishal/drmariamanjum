@@ -379,6 +379,18 @@
   @media (min-width: 1024px) {
     #galleryGrid .gallery-item { width: calc(25% - 15px); }
   }
+  /* Surgery (clinical) photos shown last in the "All" view */
+  #galleryGrid .gallery-item.surgery { order: 1; }
+
+  /* ===== Collapsible Gallery Reveal ===== */
+  #galleryReveal {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 700ms var(--ease-out-expo), opacity 500ms ease;
+  }
+  #galleryReveal.is-open { opacity: 1; }
+  #galleryToggle.is-open #galleryToggleChevron { transform: rotate(180deg); }
 
   /* ===== Reduced motion ===== */
   @media (prefers-reduced-motion: reduce) {
@@ -1138,8 +1150,20 @@
       <p data-reveal="up" data-delay="300" class="font-body-lg text-body-lg text-on-surface-variant">Surgery, academic talks, awards, workshops, and more.</p>
     </div>
 
+    <!-- Gallery Toggle Button -->
+    <div data-reveal="up" data-delay="350" class="flex justify-center mb-8">
+      <button id="galleryToggle" type="button" onclick="toggleGallery()" aria-expanded="false" aria-controls="galleryReveal" class="btn-fancy bg-primary text-white px-8 py-4 rounded-full font-label-md text-label-md flex items-center gap-2.5 shadow-lg">
+        <span class="material-symbols-outlined text-[20px]">photo_library</span>
+        <span id="galleryToggleText">View Photo Gallery</span>
+        <span id="galleryToggleChevron" class="material-symbols-outlined text-[22px] transition-transform duration-300">expand_more</span>
+      </button>
+    </div>
+
+    <!-- Collapsible Gallery (tabs + grid) -->
+    <div id="galleryReveal">
+
     <!-- Gallery Filter Tabs -->
-    <div data-reveal="up" data-delay="400" class="flex flex-wrap justify-center gap-3 mb-10">
+    <div class="flex flex-wrap justify-center gap-3 mb-10 pt-2">
       <button onclick="filterGallery('all')" class="gallery-tab active px-5 py-2.5 rounded-full font-label-md text-label-md border-2 border-primary bg-primary text-white transition-all">All</button>
       <button onclick="filterGallery('surgery')" class="gallery-tab px-5 py-2.5 rounded-full font-label-md text-label-md border-2 border-outline/40 text-on-surface bg-white hover:border-primary hover:text-primary transition-all">Surgery</button>
       <button onclick="filterGallery('awards')" class="gallery-tab px-5 py-2.5 rounded-full font-label-md text-label-md border-2 border-outline/40 text-on-surface bg-white hover:border-primary hover:text-primary transition-all">Awards &amp; Certificates</button>
@@ -1329,6 +1353,7 @@
       </div>
 
     </div>
+    </div><!-- /#galleryReveal -->
   </div>
 </section>
 
@@ -1827,7 +1852,54 @@
         item.style.display = 'none';
       }
     });
+
+    // If the gallery is open, recompute its height for the new set of photos
+    var reveal = document.getElementById('galleryReveal');
+    if (reveal && reveal.classList.contains('is-open')) {
+      requestAnimationFrame(function () { reveal.style.maxHeight = reveal.scrollHeight + 'px'; });
+    }
   };
+
+  // ===== Collapsible Gallery toggle =====
+  window.toggleGallery = function () {
+    var reveal = document.getElementById('galleryReveal');
+    var btn = document.getElementById('galleryToggle');
+    var label = document.getElementById('galleryToggleText');
+    if (!reveal || !btn) return;
+    var opening = !reveal.classList.contains('is-open');
+
+    if (opening) {
+      reveal.classList.add('is-open');
+      btn.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      if (label) label.textContent = 'Hide Photo Gallery';
+      reveal.style.maxHeight = reveal.scrollHeight + 'px';
+      // After the transition, allow natural height (lazy images / resize safe)
+      var done = function () {
+        reveal.style.maxHeight = 'none';
+        reveal.removeEventListener('transitionend', done);
+      };
+      reveal.addEventListener('transitionend', done);
+    } else {
+      // From 'none' back to a pixel value so it can animate closed
+      reveal.style.maxHeight = reveal.scrollHeight + 'px';
+      requestAnimationFrame(function () {
+        reveal.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        if (label) label.textContent = 'View Photo Gallery';
+        requestAnimationFrame(function () { reveal.style.maxHeight = '0px'; });
+      });
+    }
+  };
+
+  // Keep height correct on resize while open
+  window.addEventListener('resize', function () {
+    var reveal = document.getElementById('galleryReveal');
+    if (reveal && reveal.classList.contains('is-open') && reveal.style.maxHeight !== 'none') {
+      reveal.style.maxHeight = reveal.scrollHeight + 'px';
+    }
+  });
 
   // ===== Lightbox =====
   window.openLightbox = function(el) {
