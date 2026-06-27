@@ -381,8 +381,8 @@
   /* Surgery (clinical) photos shown last in the "All" view */
   #galleryGrid .gallery-item.surgery { order: 1; }
 
-  /* Certificates: show the whole document, correctly oriented (no crop) */
-  #galleryGrid .gallery-item.awards { height: 320px; background: #ffffff; }
+  /* Certificates: show the whole document, correctly oriented (no crop) — same box size as the rest */
+  #galleryGrid .gallery-item.awards { background: #ffffff; }
   #galleryGrid .gallery-item.awards img { object-fit: contain; image-orientation: from-image; }
   #galleryGrid .gallery-item.awards:hover img { transform: none; }
   #galleryGrid img, #lightboxImg { image-orientation: from-image; }
@@ -1520,11 +1520,6 @@
         <img alt="Dr. Mariam Anjum — Keynote Presentation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Cover page pic ( hero ).jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Keynote Presentation</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Learning Curve in Robotic Gynae Cancer Surgeries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Learning Curve in Robotic Gynae Cancer Surgeries.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Learning Curve in Robotic Gynae Cancer Surgeries</p>
       </div>
       <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum — GYNAECAN-26 — International Women&#x27;s Day Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/GYNAECEAN 2026 FATHER MULLER.jpeg" loading="lazy"/>
