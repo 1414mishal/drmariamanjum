@@ -378,8 +378,6 @@
   @media (min-width: 1024px) {
     #galleryGrid .gallery-item { width: calc(25% - 15px); }
   }
-  /* Surgery (clinical) photos shown last in the "All" view */
-  #galleryGrid .gallery-item.surgery { order: 1; }
 
   /* Certificates: show the whole document, correctly oriented (no crop) — same box size as the rest */
   #galleryGrid .gallery-item.awards { background: #ffffff; }
@@ -1533,73 +1531,10 @@
 
     <!-- Gallery Grid -->
     <div id="galleryGrid" class="flex flex-wrap justify-center gap-5" style="max-width: 1100px; margin: 0 auto;">
-
-      <!-- Surgery Photos -->
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Excised surgical specimen on surgical drape" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery.jpeg" loading="lazy"/>
+      <div class="gallery-item faculty group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Group photo at Zulekha Yenepoya Institute of Oncology — supported by Tata Trusts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/faculty - many people.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Excised Specimen</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Large tumour mass — surgical case" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Tumour Excision</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Cancer breast with skin puckering — clinical presentation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Cancer breast with skin puckering.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Breast Cancer — Skin Puckering</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Intraoperative adhesions during oncosurgery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Intraop adhesions - surgery.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Intraop Adhesions</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Low grade serous ovarian tumour — laparoscopic view on Stryker monitor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Low grade serous ovary - surgery.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Low Grade Serous Ovary — Laparoscopy</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Breast tumour with skin puckering — clinical case" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery2.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Clinical Case</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Large ovarian tumour excision — open surgery with retractors" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical atlas.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Ovarian Tumour Excision</p>
-      </div>
-
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Appendix — Surgical Atlas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Appendix - surgical atlas.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Appendix — Surgical Atlas</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Left Ovarian Torsion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Left ovarian torsion —- separate surgical atlas folder 1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Left Ovarian Torsion</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Rectum Pulled-Up Adhesions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Rectum pulled up adhesions1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Rectum Pulled-Up Adhesions</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Sentinel Lymph Node" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Sentinel lymph node.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Sentinel Lymph Node</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Dermoid Excision — Surgical Atlas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical atlas ~dermoid excision.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Dermoid Excision — Surgical Atlas</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Thermal Ablation Device — CIN1 / Cervical Ectropion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/CIN1_Cervical_Ectropion_Thermal_Ablation.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Thermal Ablation Device — CIN1 / Cervical Ectropion</p>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Zulekha Yenepoya Institute of Oncology</p>
       </div>
       <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum — Laparoscopic View — Intraoperative" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Laparoscopic intraop view.jpeg" loading="lazy"/>
@@ -1607,235 +1542,15 @@
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Laparoscopic View — Intraoperative</p>
       </div>
       <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Surgical Specimen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical specimen tray.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Surgical Specimen</p>
-      </div>
-      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum — Robotic Surgical System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/robotic surgical system.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Robotic Surgical System</p>
-      </div>
-      <!-- Awards & Certificates -->
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="AICOG 2026 Faculty Recognition Plaque — 68th All India Congress of Obstetrics and Gynaecology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">AICOG 2026 — Faculty Recognition</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum with colleague holding AGRS certificate in scrubs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards .jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">AGRS Certificate with Colleague</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Team photo in office with awards shelf — surgical team" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards2.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Surgical Team</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="FOCII 2026 Speaker Certificate — Father Muller Medical College, CME and Perineal Tear Repair Workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards3.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">FOCII 2026 — Speaker Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum receiving certificate at Amrita Centre for Robotic Surgery Training — AGRS Wet Lab Level 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/AGRS wet lab robotic training level 2 completed 7 batches more than 50 candidates PanIndia being trained on live animal on Intuitive da Vinci Xi - award.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Amrita Robotic Surgery Training</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="ISCCPCON 2026 Faculty Participation Certificate — Indian Society of Colposcopy and Cervical Pathology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">ISCCPCON 2026 — Faculty Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Certificate of Appreciation — Father Muller Homoeopathic Medical College, GYNAECON-26, International Women's Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 2.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">GYNAECON-26 — Appreciation</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="MASOCON 2026 Faculty Certificate — Manipal Surgical Oncology Conference, Kasturba Medical College" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 3.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MASOCON 2026 — Faculty Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Certificate of Appreciation — Badriya Juma Masjid Deralakatte, Women's Health Awareness Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 4.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Women's Health Awareness — Appreciation</p>
-      </div>
-
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Pelvic Anatomy Made Easy — ZIO, Yenepoya" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/WhatsApp Image 2026-06-24 at 1.19.20 AM.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Pelvic Anatomy Made Easy — ZIO, Yenepoya</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Keynote Presentation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Cover page pic ( hero ).jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Keynote Presentation</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — GYNAECAN-26 — International Women&#x27;s Day Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/GYNAECEAN 2026 FATHER MULLER.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">GYNAECAN-26 — International Women&#x27;s Day Seminar</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Fibroid Summit, Hyderabad — May 2026" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Attended Fibroid Summit at hyderbad  may 16 2026 5.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Fibroid Summit, Hyderabad — May 2026</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — ISCCP Community Champions Workshop — Adyar, Chennai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/For the ISCCP workshop as a faculty invited by Dr Jayashree Natarajan senior Gynecological oncologist cancer institute W.I.A. Adyar Chennai—community champions workshop1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">ISCCP Community Champions Workshop — Adyar, Chennai</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — CME &amp; Perineal Tear Workshop 2026 — Faculty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/CME and perineal tear workshop 2026 21 2 2026.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">CME &amp; Perineal Tear Workshop 2026 — Faculty</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — CME — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/cme certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">CME — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Father Muller — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/father muller certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Father Muller — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — KMC Manipal — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/kmc certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KMC Manipal — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — KS Hegde Medical Academy — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ks hegde certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KS Hegde Medical Academy — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — KSC AGOI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — KSC AGOI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc certificate 2.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Certificate</p>
       </div>
       <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum — MLR University — Guest Lecture" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/mlr university certificate.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MLR University — Guest Lecture</p>
       </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — OGSSI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ogssi certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">OGSSI — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — RoboGyn India — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/robogyn certificate.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">RoboGyn India — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — SERGS Certified Surgeon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/sergs certified surgeon.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">SERGS Certified Surgeon</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Yenepoya — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/yenepoya certificates.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Yenepoya — Certificate</p>
-      </div>
-      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Degrees — MBBS, MS (OBG), FMAS, PGDCR, MCh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Degrees MBBS MS OBG FMAS PGDCR MCh.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Degrees — MBBS, MS (OBG), FMAS, PGDCR, MCh</p>
-      </div>
-      <!-- Talks & Workshops -->
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum with international faculty at Robotic Gyn Surgery workshop — AICOG 2026" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Delivered a talk in robotic workshop -Topic ~.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Robotic Gyn Surgery Workshop — AICOG 2026</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum delivering a KSC AGOI talk on HPV vaccination at St John's" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Feb talk KSC AGOI on HPV vaccination at St John’s.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">HPV Vaccination Talk — KSC AGOI, St John's</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum delivering talk on Pelvic Anatomy Made Easy at podium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Pelvic Anatomy — Made Easy</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum at podium — side view during Pelvic Anatomy talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks2.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Academic Lecture</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum receiving award from faculty member in lecture hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks3.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Father Muller CME</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum speaking at KSC-AGOI podium — Karnataka State Chapter, Association of Gynaecologic Oncologists" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks4.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC-AGOI — Keynote Address</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="MASOCON 2026 — live surgical presentation on stage at Kasturba Medical College, Manipal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks5.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MASOCON 2026 — Live Surgery Presentation</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Women's Health Awareness poster — Dr. Mariam Anjum, Badriya Shariyath College, Deralakatte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/poster - less imp.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Women's Health Awareness Seminar</p>
-      </div>
-
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Career Talk — EDUPATH (Expert College)" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Expert college talks.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Career Talk — EDUPATH (Expert College)</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Expert College — Guest Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Expert college talks 1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Expert College — Guest Talk</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Beary Mela 2023 — Community Outreach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/beary mela 2023.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Beary Mela 2023 — Community Outreach</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Kannur Screening Camp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/kannur camp.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Kannur Screening Camp</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — KSC AGOI — Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc talks.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Talk</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Scientific Sessions — Programme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/sessions.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Scientific Sessions — Programme</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Society Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/society talks.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MOGS Secretary</p>
-      </div>
-      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Dr. Mariam Anjum — Felicitation on Stage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks 1.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Felicitation</p>
-      </div>
-      <!-- Faculty & Events -->
       <div class="gallery-item faculty group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum with colleagues at ISCCPCON 2026 workshop banner — Cancer Institute WIA, Chennai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Faculty at ISCCP - faculty.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
@@ -1845,11 +1560,6 @@
         <img alt="Dr. Mariam Anjum during a press interview with microphones at a studio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/faculty.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Press Interview</p>
-      </div>
-      <div class="gallery-item faculty group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
-        <img alt="Group photo at Zulekha Yenepoya Institute of Oncology — supported by Tata Trusts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/faculty - many people.jpeg" loading="lazy"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
-        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Zulekha Yenepoya Institute of Oncology</p>
       </div>
       <div class="gallery-item faculty group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum with colleagues — group photo with senior faculty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/faculty4.jpeg" loading="lazy"/>
@@ -1871,7 +1581,6 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">AICOG 2026 — New Delhi</p>
       </div>
-
       <div class="gallery-item faculty group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
         <img alt="Dr. Mariam Anjum — AGOICON 2023" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/AGOICON2023.jpeg" loading="lazy"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
@@ -1957,6 +1666,287 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
         <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">OGSSI Conference, Chennai</p>
       </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Pelvic Anatomy Made Easy — ZIO, Yenepoya" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/WhatsApp Image 2026-06-24 at 1.19.20 AM.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Pelvic Anatomy Made Easy — ZIO, Yenepoya</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Keynote Presentation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Cover page pic ( hero ).jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Keynote Presentation</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — GYNAECAN-26 — International Women&#x27;s Day Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/GYNAECEAN 2026 FATHER MULLER.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">GYNAECAN-26 — International Women&#x27;s Day Seminar</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Fibroid Summit, Hyderabad — May 2026" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Attended Fibroid Summit at hyderbad  may 16 2026 5.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Fibroid Summit, Hyderabad — May 2026</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — ISCCP Community Champions Workshop — Adyar, Chennai" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/For the ISCCP workshop as a faculty invited by Dr Jayashree Natarajan senior Gynecological oncologist cancer institute W.I.A. Adyar Chennai—community champions workshop1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">ISCCP Community Champions Workshop — Adyar, Chennai</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — CME &amp; Perineal Tear Workshop 2026 — Faculty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/CME and perineal tear workshop 2026 21 2 2026.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">CME &amp; Perineal Tear Workshop 2026 — Faculty</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum with international faculty at Robotic Gyn Surgery workshop — AICOG 2026" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Delivered a talk in robotic workshop -Topic ~.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Robotic Gyn Surgery Workshop — AICOG 2026</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum delivering a KSC AGOI talk on HPV vaccination at St John's" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Feb talk KSC AGOI on HPV vaccination at St John’s.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">HPV Vaccination Talk — KSC AGOI, St John's</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum delivering talk on Pelvic Anatomy Made Easy at podium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Pelvic Anatomy — Made Easy</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum at podium — side view during Pelvic Anatomy talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks2.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Academic Lecture</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum receiving award from faculty member in lecture hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks3.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Father Muller CME</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum speaking at KSC-AGOI podium — Karnataka State Chapter, Association of Gynaecologic Oncologists" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks4.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC-AGOI — Keynote Address</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="MASOCON 2026 — live surgical presentation on stage at Kasturba Medical College, Manipal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks5.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MASOCON 2026 — Live Surgery Presentation</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Women's Health Awareness poster — Dr. Mariam Anjum, Badriya Shariyath College, Deralakatte" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/poster - less imp.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Women's Health Awareness Seminar</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Career Talk — EDUPATH (Expert College)" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Expert college talks.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Career Talk — EDUPATH (Expert College)</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Expert College — Guest Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Expert college talks 1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Expert College — Guest Talk</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Beary Mela 2023 — Community Outreach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/beary mela 2023.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Beary Mela 2023 — Community Outreach</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Kannur Screening Camp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/kannur camp.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Kannur Screening Camp</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — KSC AGOI — Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc talks.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Talk</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Scientific Sessions — Programme" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/sessions.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Scientific Sessions — Programme</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Society Talk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/society talks.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MOGS Secretary</p>
+      </div>
+      <div class="gallery-item talks group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Felicitation on Stage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/talks 1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Felicitation</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Excised surgical specimen on surgical drape" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Excised Specimen</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Large tumour mass — surgical case" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Tumour Excision</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Cancer breast with skin puckering — clinical presentation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Cancer breast with skin puckering.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Breast Cancer — Skin Puckering</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Intraoperative adhesions during oncosurgery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Intraop adhesions - surgery.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Intraop Adhesions</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Low grade serous ovarian tumour — laparoscopic view on Stryker monitor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Low grade serous ovary - surgery.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Low Grade Serous Ovary — Laparoscopy</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Breast tumour with skin puckering — clinical case" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/surgery2.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Clinical Case</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Large ovarian tumour excision — open surgery with retractors" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical atlas.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Ovarian Tumour Excision</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Appendix — Surgical Atlas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Appendix - surgical atlas.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Appendix — Surgical Atlas</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Left Ovarian Torsion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Left ovarian torsion —- separate surgical atlas folder 1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Left Ovarian Torsion</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Rectum Pulled-Up Adhesions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Rectum pulled up adhesions1.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Rectum Pulled-Up Adhesions</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Sentinel Lymph Node" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Sentinel lymph node.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Sentinel Lymph Node</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Dermoid Excision — Surgical Atlas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical atlas ~dermoid excision.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Dermoid Excision — Surgical Atlas</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Thermal Ablation Device — CIN1 / Cervical Ectropion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/CIN1_Cervical_Ectropion_Thermal_Ablation.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Thermal Ablation Device — CIN1 / Cervical Ectropion</p>
+      </div>
+      <div class="gallery-item surgery group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Surgical Specimen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Surgical specimen tray.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Surgical Specimen</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="AICOG 2026 Faculty Recognition Plaque — 68th All India Congress of Obstetrics and Gynaecology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">AICOG 2026 — Faculty Recognition</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum with colleague holding AGRS certificate in scrubs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards .jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">AGRS Certificate with Colleague</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Team photo in office with awards shelf — surgical team" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards2.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Surgical Team</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="FOCII 2026 Speaker Certificate — Father Muller Medical College, CME and Perineal Tear Repair Workshop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/awards3.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">FOCII 2026 — Speaker Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum receiving certificate at Amrita Centre for Robotic Surgery Training — AGRS Wet Lab Level 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/AGRS wet lab robotic training level 2 completed 7 batches more than 50 candidates PanIndia being trained on live animal on Intuitive da Vinci Xi - award.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Amrita Robotic Surgery Training</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="ISCCPCON 2026 Faculty Participation Certificate — Indian Society of Colposcopy and Cervical Pathology" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">ISCCPCON 2026 — Faculty Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Certificate of Appreciation — Father Muller Homoeopathic Medical College, GYNAECON-26, International Women's Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 2.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">GYNAECON-26 — Appreciation</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="MASOCON 2026 Faculty Certificate — Manipal Surgical Oncology Conference, Kasturba Medical College" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 3.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">MASOCON 2026 — Faculty Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Certificate of Appreciation — Badriya Juma Masjid Deralakatte, Women's Health Awareness Seminar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/certificate awards 4.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Women's Health Awareness — Appreciation</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — CME — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/cme certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">CME — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Father Muller — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/father muller certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Father Muller — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — KMC Manipal — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/kmc certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KMC Manipal — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — KS Hegde Medical Academy — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ks hegde certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KS Hegde Medical Academy — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — KSC AGOI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — KSC AGOI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ksc certificate 2.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">KSC AGOI — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — OGSSI — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/ogssi certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">OGSSI — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — RoboGyn India — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/robogyn certificate.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">RoboGyn India — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — SERGS Certified Surgeon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/sergs certified surgeon.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">SERGS Certified Surgeon</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Yenepoya — Certificate" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/yenepoya certificates.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Yenepoya — Certificate</p>
+      </div>
+      <div class="gallery-item awards group rounded-2xl overflow-hidden relative cursor-pointer" onclick="openLightbox(this)">
+        <img alt="Dr. Mariam Anjum — Degrees — MBBS, MS (OBG), FMAS, PGDCR, MCh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="photos/Degrees MBBS MS OBG FMAS PGDCR MCh.jpeg" loading="lazy"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent transition-opacity duration-300"></div>
+        <p class="absolute bottom-3 left-3 right-3 text-white font-label-md text-[12px] drop-shadow transition-opacity duration-300">Degrees — MBBS, MS (OBG), FMAS, PGDCR, MCh</p>
+      </div>
+    
     </div>
     </div><!-- /#galleryReveal -->
   </div>
@@ -2034,6 +2024,69 @@
           <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
         </div>
         <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Manoeuvring a Large Uterus — Hysterectomy</p></div>
+      </a>
+      <a href="https://youtu.be/eRHpEh-YZkM" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="SSI Mantra Robotic System Overview with Dr. Anjum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/eRHpEh-YZkM/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">SSI Mantra Robotic System Overview with Dr. Anjum</p></div>
+      </a>
+      <a href="https://youtu.be/eodykSR_Ttw" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Challenging Laparoscopic Hysterectomy in a Ventrifixed Uterus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/eodykSR_Ttw/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Challenging Laparoscopic Hysterectomy in a Ventrifixed Uterus</p></div>
+      </a>
+      <a href="https://youtu.be/n3PrQkGLDZ0" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Mastering Vault Suturing with Dr. Anjum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/n3PrQkGLDZ0/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Mastering Vault Suturing with Dr. Anjum</p></div>
+      </a>
+      <a href="https://youtu.be/PrlG8W3B3Ts" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Mastering Robotic Surgery with Dr. Anjum — Inside the OR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/PrlG8W3B3Ts/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Mastering Robotic Surgery with Dr. Anjum — Inside the OR</p></div>
+      </a>
+      <a href="https://youtu.be/WHTVwdZ7eZM" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Laparoscopic Parafimbrial Cyst Excision" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/WHTVwdZ7eZM/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Laparoscopic Parafimbrial Cyst Excision</p></div>
+      </a>
+      <a href="https://youtu.be/Z5qTgiAsaxM" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Laparoscopic Dermoid Cyst Excision" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/Z5qTgiAsaxM/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Laparoscopic Dermoid Cyst Excision</p></div>
+      </a>
+      <a href="https://youtu.be/v8ajPiD76pE" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Large Uterus Hysterectomy on the SSI Mantra Robotic System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/v8ajPiD76pE/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Large Uterus Hysterectomy on the SSI Mantra Robotic System</p></div>
+      </a>
+      <a href="https://youtu.be/rJgFQQnWn-Q" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Robotic Malignant Hysterectomy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/rJgFQQnWn-Q/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Robotic Malignant Hysterectomy</p></div>
+      </a>
+      <a href="https://youtu.be/kMsRarF3BpQ" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
+        <div class="relative aspect-video overflow-hidden bg-black">
+          <img alt="Robotic Hysterectomy — Step-by-Step Guide for Beginners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/kMsRarF3BpQ/hqdefault.jpg" loading="lazy"/>
+          <span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 rounded-full bg-black/55 group-hover:bg-primary/85 transition-colors flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]" style="font-variation-settings:'FILL' 1;">play_arrow</span></span></span>
+        </div>
+        <div class="p-5"><p class="font-headline-md text-[16px] text-on-surface group-hover:text-primary transition-colors">Robotic Hysterectomy — Step-by-Step Guide for Beginners</p></div>
       </a>
     </div>
 
