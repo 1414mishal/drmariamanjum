@@ -395,6 +395,34 @@
   #galleryReveal.is-open { opacity: 1; }
   #galleryToggle.is-open #galleryToggleChevron { transform: rotate(180deg); }
 
+  /* ===== Centered card rows: an incomplete last row is centered, not left-aligned ===== */
+  .crow { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+  .crow > * { width: 100%; }
+
+  /* gap 16px · 2 / 3 / 5 columns */
+  .crow-235 { gap: 16px; }
+  .crow-235 > * { width: calc((100% - 16px) / 2); }
+  @media (min-width: 768px)  { .crow-235 > * { width: calc((100% - 32px) / 3); } }
+  @media (min-width: 1024px) { .crow-235 > * { width: calc((100% - 64px) / 5); } }
+
+  /* gap 16px · 2 / 3 / 6 columns */
+  .crow-236 { gap: 16px; }
+  .crow-236 > * { width: calc((100% - 16px) / 2); }
+  @media (min-width: 768px)  { .crow-236 > * { width: calc((100% - 32px) / 3); } }
+  @media (min-width: 1024px) { .crow-236 > * { width: calc((100% - 80px) / 6); } }
+
+  /* gap 24px · 1 / 2 / 3 columns */
+  .crow-123 { gap: 24px; }
+  .crow-123 > * { width: 100%; }
+  @media (min-width: 640px)  { .crow-123 > * { width: calc((100% - 24px) / 2); } }
+  @media (min-width: 1024px) { .crow-123 > * { width: calc((100% - 48px) / 3); } }
+
+  /* gap 20px · 1 / 2 / 4 columns */
+  .crow-124 { gap: 20px; }
+  .crow-124 > * { width: 100%; }
+  @media (min-width: 640px)  { .crow-124 > * { width: calc((100% - 20px) / 2); } }
+  @media (min-width: 1024px) { .crow-124 > * { width: calc((100% - 60px) / 4); } }
+
   /* ===== Reduced motion ===== */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -889,7 +917,7 @@
         <span class="material-symbols-outlined text-secondary">target</span>
         Gynaecologic Cancer Treatment
       </h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-stagger="80">
+      <div class="crow crow-235" data-stagger="80">
         <div class="p-5 rounded-xl bg-white border border-surface-variant/50 hover:border-primary/30 hover:-translate-y-1 transition-all">
           <span class="material-symbols-outlined text-primary mb-3 text-[28px]">radio_button_unchecked</span>
           <p class="font-label-md text-on-surface text-[14px]">Ovarian Cancer</p>
@@ -939,7 +967,7 @@
         <span class="material-symbols-outlined text-secondary">health_and_safety</span>
         Benign Gynaecological Care
       </h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-stagger="80">
+      <div class="crow crow-235" data-stagger="80">
         <div class="p-5 rounded-xl bg-white border border-surface-variant/50 hover:border-primary/30 hover:-translate-y-1 transition-all">
           <span class="material-symbols-outlined text-primary mb-3 text-[28px]">scatter_plot</span>
           <p class="font-label-md text-on-surface text-[14px]">Fibroids</p>
@@ -969,7 +997,7 @@
         <span class="material-symbols-outlined text-secondary">surgical</span>
         Advanced Surgical Services
       </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger="200">
+      <div class="crow crow-123" data-stagger="200">
         <div class="group lift-card p-8 rounded-2xl bg-white border border-surface-variant/50 hover:border-primary/20">
           <div class="w-14 h-14 rounded-xl bg-primary-fixed/30 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
             <span class="material-symbols-outlined text-[32px]">precision_manufacturing</span>
@@ -1007,7 +1035,7 @@
         <span class="material-symbols-outlined text-secondary">shield</span>
         Preventive Oncology
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger="200">
+      <div class="crow crow-123" data-stagger="200">
         <div class="group lift-card p-8 rounded-2xl bg-white border border-surface-variant/50 hover:border-primary/20">
           <div class="w-14 h-14 rounded-xl bg-primary-fixed/30 flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
             <span class="material-symbols-outlined text-[32px]">biotech</span>
@@ -1246,7 +1274,7 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" data-stagger="100">
+    <div class="crow crow-236" data-stagger="100">
       <div class="aspect-square flex flex-col items-center justify-center p-6 rounded-2xl bg-surface-container-low border border-surface-variant/50 hover:bg-primary hover:text-on-primary hover:border-primary group transition-all">
         <span class="font-display-lg text-[28px] text-primary group-hover:text-primary-fixed mb-2">IGCS</span>
         <span class="font-label-md text-[11px] text-on-surface-variant group-hover:text-primary-fixed/80 text-center uppercase tracking-wider">International Gynae Cancer Society</span>
@@ -1280,7 +1308,7 @@
     <!-- Leadership & Positions -->
     <div class="mt-16">
       <h3 data-reveal="up" class="font-headline-md text-[22px] text-primary mb-8 text-center">Leadership &amp; Positions Held</h3>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" data-stagger="120">
+      <div class="crow crow-124" data-stagger="120">
         <div class="lift-card p-6 rounded-2xl bg-white border border-surface-variant/50">
           <span class="material-symbols-outlined text-primary mb-3" style="font-variation-settings:'FILL' 1;">account_balance</span>
           <p class="font-headline-md text-[16px] text-on-surface mb-1">Hon. Treasurer</p>
@@ -2078,7 +2106,7 @@
       <p data-reveal="up" data-delay="300" class="font-body-lg text-body-lg text-on-surface-variant">Surgical techniques, academic talks, and media features — on YouTube.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger="120">
+    <div class="crow crow-123" data-stagger="120">
       <a href="https://youtu.be/YJlKheGgozk" target="_blank" rel="noopener noreferrer" class="group lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
         <div class="relative aspect-video overflow-hidden bg-black">
           <img alt="Robotic-Assisted Gynecologic Surgery at Yenepoya Medical College Hospital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://img.youtube.com/vi/YJlKheGgozk/hqdefault.jpg" loading="lazy"/>
@@ -2211,7 +2239,7 @@
       <span class="material-symbols-outlined text-secondary">movie</span>
       Surgical &amp; Media Clips
     </h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger="120">
+    <div class="crow crow-123" data-stagger="120">
       <div class="lift-card rounded-2xl overflow-hidden bg-white border border-surface-variant/50">
         <video class="w-full aspect-video bg-black" controls preload="metadata" playsinline>
           <source src="AIP press interview video.mp4" type="video/mp4"/>
